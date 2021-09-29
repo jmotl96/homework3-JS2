@@ -21,13 +21,16 @@ const app = new Vue({
         return {
             tab: null,
             itemsNav: [
-                'Stuffed Animals', 'shopping', 'Latin Text', 'images', 'news',
+                'Stuffed Animals',
+                'shopping',
+                'Latin Text',
             ],
             //Stuff animal component
             newStuffAnimal:{
                 name: '',
                 manufacturer: '',
                 size: '',
+                isFav: false,
             },
             stuffAnimal: [
                 {name:'eevee', manufacturer: 'Build a baer', size: 'med', isFav: true},
@@ -69,6 +72,14 @@ const app = new Vue({
             }
 
 
+        },
+
+        addToFav: function (e){
+            this.stuffAnimal.isFav = true;
+        },
+
+        removeStuffie(item){
+            this.stuffAnimal.splice(this.stuffAnimal.indexof(item), 1)
         }
     },
 
