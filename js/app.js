@@ -16,7 +16,6 @@ const app = new Vue({
         }
     }),
 
-
     data () {
         return {
             tab: null,
@@ -31,10 +30,12 @@ const app = new Vue({
                 manufacturer: '',
                 size: '',
                 isFav: false,
+                id: null,
             },
+            //list of stuff animals
             stuffAnimal: [
-                {name:'eevee', manufacturer: 'Build a baer', size: 'med', isFav: true},
-                {name:'flareon', manufacturer: 'Build a baer', size: 'med', isFav: false}
+                {name:'eevee', manufacturer: 'Build a bear', size: 'med', isFav: true, id: 0},
+                {name:'flareon', manufacturer: 'Build a bear', size: 'med', isFav: false, id: 1},
             ],
 
             sizes: ['Sml','Med','Lag','Xl'],
@@ -68,11 +69,22 @@ const app = new Vue({
 
     methods: {
         addStuffy: function(e){
+            for( var h = 0; h < this.stuffAnimal.length; h++){
+                console.log(h)
+                if ( this.stuffAnimal[h].id !== h ){
+                    this.newStuffAnimal.id = h + 1;
+                    console.log(h);
+                    break;
+                }
+            }
+
             this.stuffAnimal.push(this.newStuffAnimal);
+
 
             this.newStuffAnimal = {
                 name: '',
                 manufacturer: ''
+
             }
 
 
@@ -83,7 +95,17 @@ const app = new Vue({
         },
 
         removeStuffie(item){
-            this.stuffAnimal.splice(this.stuffAnimal.indexof(item), 1)
+            console.log(item);
+
+            for( var j = 0; j < this.stuffAnimal.length; j++){
+
+                //console.log(j);
+                //console.log(this.stuffAnimal.id);
+                if ( this.stuffAnimal[j].id == item ){
+                    this.stuffAnimal.splice(j, 1);
+                }
+            }
+
         }
     },
 
@@ -93,4 +115,10 @@ const app = new Vue({
         }
     }
 
+
+
 })
+
+// Vue.component('MainToolbar',{
+//     template:
+// })

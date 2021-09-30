@@ -117,6 +117,12 @@
                                                         required
                                                 ></v-select>
                                             </v-col>
+                                            <v-col>
+                                                <v-checkbox
+                                                        v-model="stuffAnimal.isFav"
+                                                        label = "favorite"
+                                                ></v-checkbox>
+                                            </v-col>
                                         </v-row>
                                     </v-container>
                                 </v-form>
@@ -170,7 +176,7 @@
                                 <v-btn
                                         color="red lighten-2"
                                         dark
-                                        @click="removeStuffie()"
+                                        @click="removeStuffie(stuffAnimal.id)"
                                 >
                                     Delete
                                 </v-btn>
@@ -251,7 +257,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-<script src="js/app-models.js"></script>
-<script src="js/components/note.js"></script>
 <script src="js/app.js"></script>
 </html>
